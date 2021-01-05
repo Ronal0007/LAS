@@ -19,4 +19,8 @@ router.get('.user/edit', function(req, res, next){
   res.render('user_edit', {title: "CCD | EDIT USER"})
 })
 
+router.get('/user/change-password', function(req, res, next){
+  res.render('user_password', {title: "CCD | USERS"})
+})
+
 module.exports = router;

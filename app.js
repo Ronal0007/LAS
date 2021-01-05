@@ -25,6 +25,7 @@ const reportRouter = require('./routes/index');
 const userRouter = require('./routes/users');
 const userAddRouter = require('./routes/users');
 const userEditRouter = require('./routes/users');
+const userPassword = require('./routes/users')
 
 
 var app = express();
@@ -64,6 +65,7 @@ app.use('/plot/edit', plotEditRouter);
 app.use('/user', userRouter);
 app.use('/user/add', userAddRouter);
 app.use('/user/edit', userEditRouter);
+app.use('/user/change-password', userPassword);
 app.use('/allocation', allocRouter);
 app.use('/allocation/add', allocNewRouter);
 

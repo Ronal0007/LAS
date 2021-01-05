@@ -168,3 +168,14 @@ a.article:hover {
         display: none;
     }
 }
+
+#btnAdd{
+    float: right;
+    margin-bottom: 0.5em;
+}
+#tableBtn {
+    margin-right: 0.1em;
+}
+div.alert {
+    width: 30%;
+}
