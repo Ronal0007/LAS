@@ -30,13 +30,16 @@ const userEditRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'),
-path.join(__dirname, 'allocation'),
-path.join(__dirname, 'block'),
-path.join(__dirname, 'location'),
-path.join(__dirname, 'plot'),
-path.join(__dirname, 'user'));
+app.set('views', [path.join(__dirname, 'views/'),
+  path.join(__dirname, 'views/project'),
+  path.join(__dirname, 'views/allocation'),
+  path.join(__dirname, 'views/block'),
+  path.join(__dirname, 'views/location'),
+  path.join(__dirname, 'views/plot'),
+  path.join(__dirname, 'views/user')]);
 app.set('view engine', 'pug');
+
+
 
 app.use(logger('dev'));
 app.use(express.json());

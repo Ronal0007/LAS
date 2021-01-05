@@ -148,7 +148,11 @@ a.article:hover {
     min-height: 100vh;
     transition: all 0.3s;
 }
-
+.dropdown-toggle::before, 
+.dropdown-toggle::after {
+    border: none;
+    content: none;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */

@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+var userFile = require('./users');
+
+router.use(userFile);
+
 /* GET home page. */
 router.get('/dashboard', function(req, res, next){
   res.render('index' , {title: "CCD | HOME"})
