@@ -1,0 +1,30 @@
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, shrink-to-fit=no')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css')
+    link(rel='stylesheet' href="../stylesheets/login.css")
+    link(rel="stylesheet", href="../stylesheets/bootstrap.css")
+    link(rel="stylesheet", href="../stylesheets/bootstrap.min.css")
+  body
+    nav.navbar.navbar-expand-sm.navbar-dark.bg-dark  
+        #navbar8.navbar-collapse.collapse
+            ul.navbar-nav.abs-center-x
+                li.nav-item
+                    a.nav-link#header(href='/') CITY COUNCIL OF DODOMA LAND ALLOCATION SYSTEM ( LAS )
+    .login-dark(style='height: 600px;')
+      form(method="POST" action="/authentication" name="loginForm")
+        h2.sr-only Login Form
+        .illustration
+          i.icon.ion-ios-locked-outline
+        .form-group
+          input.form-control(type='email' name='email' placeholder='Enter Your Email')
+        .form-group
+          input.form-control(type='password' name='password' placeholder='Enter Your Password')
+        .form-group
+          button.btn.btn-primary.btn-block Log In
+        a.forgot(href='#') Forgot your email or password?
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js')
