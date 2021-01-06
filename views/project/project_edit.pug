@@ -1,3 +1,17 @@
 extends ../layout
 
 block content
+	.container
+		.row
+			div.alert.alert-primary Project / Edit
+	br
+	h3#titleEdit.text-center Project Edit
+	hr
+	br
+	.container#form
+		form(action="" method="POST" name="plot_add_form")
+			label(for="project_name_input") Project Name
+			.form-group
+				input#project_name_input.form-control(type="text" placeholder="Project Name" name="project_name")
+			.form-group
+				button.btn.btn-primary(type="submit") UPDATE PROJECT

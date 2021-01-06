@@ -179,3 +179,12 @@ a.article:hover {
 div.alert {
     width: 30%;
 }
+#form {
+    width: 60%;
+}
+#title {
+    color: #155724;
+}
+#titleEdit {
+    color: #004085;
+}
