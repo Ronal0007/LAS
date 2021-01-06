@@ -3,22 +3,36 @@ extends ../layout
 block content
 	.container
 		.row
-			div.alert.alert-success Location / Add
+			div.alert.alert-success Allocation / Add
 	br
-	h3#title.text-center Location Add
+	h3#title.text-center Allocation Add
 	hr
 	br
 	.container#form
-		form(action="" method="POST" name="location_add_form")
+		form(action="" method="POST" name="allocation_add_form")
 			label(for="select_project") Select Project
-			select.form-control.form-control(select="") Select Project
-				option(value="") Select Project
-				option(value="") NALA
-				option(value="") NZUGUNI
-			br
-			label(for="location_name_input") Location Name
 			.form-group
-				input#location_name_input.form-control(type="text" placeholder="Location Name" name="location_name")
-				small#emailHelp.form-text.text-muted Enter Unique Location Name
+				select.form-control(select="") Select Project
+					option(value="") Select Project
+					option(value="") NALA
+					option(value="") NZUGUNI
+			label(for="select_location") Location Name
+			.form-group
+				select.form-control(select="") Select Location
+					option(value="") Select Location
+					option(value="") NALA
+					option(value="") NZUGUNI
+			label(for="select_block") Block Name
+			.form-group
+				select.form-control(select="") Select Block
+					option(value="") Select Block
+					option(value="B") B
+					option(value="AD") AD
+			label(for="select_plot") Plot Number
+			.form-group
+				select.form-control.form-control(select="") Select Plot
+					option(value="") Select Plot
+					option(value="1") 1
+					option(value="2") 2
 			.form-group
 				button.btn.btn-primary(type="submit") ADD LOCATION

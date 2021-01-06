@@ -57,4 +57,13 @@ router.get('/plot/edit', function(req, res, next){
   res.render('plot_edit', {title: "CCD | EDIT PLOT"})
 })
 
+router.get('/allocation', function(req, res, next){
+  res.render('allocation', {title: "CCD | ALLOCATION"})
+})
+
+router.get('/allocation/add', function(req, res, next){
+  res.render('new_allocation', {title: "CCD | NEW ALLOCATION"})
+})
+
 module.exports = router;
+
