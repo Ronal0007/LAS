@@ -1,23 +1,14 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('plots', {
+    await queryInterface.createTable('statuses', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      plotSize: {
-        type: Sequelize.INTEGER
-      },
-      plotUse: {
-        type: Sequelize.STRING
-      },
-      regNumber: {
-        type: Sequelize.STRING
-      },
-      surveyNumber: {
+      name: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -31,6 +22,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('plots');
+    await queryInterface.dropTable('statuses');
   }
 };

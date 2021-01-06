@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   block.init({
     blockName: DataTypes.STRING,
-    regNumber: DataTypes.STRING
+    projectId: DataTypes.INTEGER,
+    locationId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'block',

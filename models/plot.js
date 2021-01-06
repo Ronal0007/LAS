@@ -14,10 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   plot.init({
-    plotSize: DataTypes.INTEGER,
-    plotUse: DataTypes.STRING,
-    regNumber: DataTypes.STRING,
-    surveyNumber: DataTypes.STRING
+    plotNumber: DataTypes.INTEGER,
+    plotSize: DataTypes.STRING,
+    plotUseId: DataTypes.INTEGER,
+    projectId: DataTypes.INTEGER,
+    locationId: DataTypes.INTEGER,
+    blockId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
+    statusId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'plot',

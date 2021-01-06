@@ -15,7 +15,7 @@ router.get('/user/add', function(req, res, next){
   res.render('user_add', {title: "CCD | ADD USER"})
 })
 
-router.get('.user/edit', function(req, res, next){
+router.get('/user/edit', function(req, res, next){
   res.render('user_edit', {title: "CCD | EDIT USER"})
 })
 
