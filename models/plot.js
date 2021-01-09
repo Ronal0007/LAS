@@ -1,30 +1,38 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class plot extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+
+module.exports = function(sequelize, DataTypes){
+  const plot = sequelize.define('plot', {
+    plotNumber: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    plotSize: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    plotuseId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    blockId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    statusId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
-  };
-  plot.init({
-    plotNumber: DataTypes.INTEGER,
-    plotSize: DataTypes.STRING,
-    plotUseId: DataTypes.INTEGER,
-    projectId: DataTypes.INTEGER,
-    locationId: DataTypes.INTEGER,
-    blockId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER,
-    statusId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'plot',
-  });
+  },{})
+  plot.associate = function(models){
+    plot.belongsTo(models.plotuse, {
+      foreignKey: 'plotuseId'
+    })
+    plot.belongsTo(models.block, {
+      foreignKey: 'blockId'
+    })
+    plot.belongsTo(models.status, {
+      foreignKey: 'statusId'
+    })
+  }
   return plot;
 };

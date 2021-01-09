@@ -1,7 +1,59 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const sequelize = require("../app");
+const db = require("../models");
+const bcrypt = require('bcrypt'),
+      bodyParser = require('body-parser'),
+      flash = require('connect-flash'),
+      csurf = require('csurf'),
+      messages = require('express-messages'),
+      session = require('express-session');
+const cookieParser = require("cookie-parser");
+const Sequelize = require('sequelize');
 
-var userFile = require('./users');
+const paginate = require("express-paginate");
+
+// keep this before all routes that will use pagination
+router.use(paginate.middleware(10, 10));
+
+(sequelize == db.sequelize), ( Sequelize == db.Sequelize);
+var sessionStore = new session.MemoryStore();
+
+router.use(cookieParser("secret"));
+router.use(
+  session({
+    cookie: {
+      maxAge: 60000,
+    },
+    store: sessionStore,
+    saveUninitialized: false,
+    resave: true,
+    secret: "secret",
+  })
+);
+
+// express-messages middleware
+router.use(flash());
+router.use((req, res, next) => {
+  res.locals.errors = req.flash("danger");
+  res.locals.successes = req.flash("success");
+  next();
+});
+
+router.use(bodyParser.json());
+router.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+// setup route middlewares
+var csrfProtection = csurf({
+  cookie: true,
+});
+
+
+const userFile = require('./users');
 router.use(userFile);
 
 /* GET home page. */
@@ -66,4 +118,3 @@ router.get('/allocation/add', function(req, res, next){
 })
 
 module.exports = router;
-

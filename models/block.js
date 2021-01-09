@@ -1,26 +1,22 @@
+
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class block extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+
+module.exports = function(sequelize, DataTypes){
+  const block = sequelize.define('block', {
+    blockName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    locationId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
-  };
-  block.init({
-    blockName: DataTypes.STRING,
-    projectId: DataTypes.INTEGER,
-    locationId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'block',
-  });
+  },{})
+  block.associate = function (models){
+    block.belongsTo(models.location, {
+      foreignKey: 'locationId'
+    })
+    block.hasMany(models.plot)
+  }
   return block;
 };

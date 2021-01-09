@@ -2,7 +2,27 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const Sequelize = require("sequelize");
+
 var logger = require('morgan');
+const db = require("./models")
+
+const sequelize = new Sequelize({
+  // The `host` parameter is required for other databases
+  host: "localhost",
+  username: "root",
+  password: "root",
+  database: "ccd_test",
+  dialect: "mysql",
+});
+
+sequelize.authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+  });
 
 //routers init
 const indexRouter = require('./routes/index');
@@ -28,7 +48,7 @@ const userEditRouter = require('./routes/users');
 const userPassword = require('./routes/users')
 
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', [path.join(__dirname, 'views/'),

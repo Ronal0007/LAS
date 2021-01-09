@@ -9,13 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       locationName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false
       },
       projectId: {
-        type: Sequelize.INTEGER
-      },
-      userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'projects',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

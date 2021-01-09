@@ -9,10 +9,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       projectName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      statusId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'statuses',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

@@ -9,28 +9,36 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       plotNumber: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING,
+        allowNull: false
       },
       plotSize: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      plotUseId: {
-        type: Sequelize.INTEGER
-      },
-      projectId: {
-        type: Sequelize.INTEGER
-      },
-      locationId: {
-        type: Sequelize.INTEGER
+      plotuseId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'plotuses',
+          key: 'id'
+        }
       },
       blockId: {
-        type: Sequelize.INTEGER
-      },
-      userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'blocks',
+          key: 'id'
+        }
       },
       statusId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'statuses',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
